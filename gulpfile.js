@@ -111,6 +111,7 @@ function prodStyles(){
     }),
   ]))
   .pipe(cleanCSS({compatibility: 'ie8'}))
+  .pipe(concat({ path: 'style.css'}))
   .pipe(rev())
   .pipe(dest(options.paths.build.css))
   .pipe( rev.manifest( options.paths.build.base + '/manifest.json', {
