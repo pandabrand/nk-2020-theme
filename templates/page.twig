@@ -1,0 +1,25 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+					{% if post.post_name == 'applications' or post.post_name == 'projects' %}
+						<div class="article-body">
+							<div class="flex-1 flex-grow flex justify-center">
+								<div class="grid grid-cols-2 gap-8 mt-8">
+									{{post.content}}
+								</div>
+							</div>
+						</div>
+					{% else %}
+						<div class="article-body">
+							<div class="flex-1 p-8">
+								{{post.content}}
+							</div>
+						</div>
+					{% endif %}
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

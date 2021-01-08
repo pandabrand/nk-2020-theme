@@ -1,0 +1,21 @@
+<div class="menu-wrapper se wrapper h-16">
+  <div class="menu bg-indigo-900">
+    <h1 class="hdr-logo absolute w-full text-white text-xl sm:text-2xl uppercase" role="banner">
+        <button class="p-4" id="se-menu-button"><i class="far fa-bars"></i></button>
+      <a class="hdr-logo-link pl-4" href="{{se_home}}" rel="home">{{se_title}}</a>
+    </h1>
+  </div>
+  <div class="menu flex-initial relative bg-red-900">
+    <h1 class="hdr-logo absolute bg-red-900 w-max p-4 text-white text-2xl uppercase cursor-pointer transition-all duration-500 transform translate-x-0  hover:-translate-x-full" role="banner">
+        <i class="far fa-bullseye"></i>
+        <a class="hdr-logo-link pl-4" href="{{sv_home}}" rel="home">{{sv_title}}</a>
+    </h1>
+  </div>
+</div>
+<div id="se-menu" class="fixed z-20 bg-white bg-opacity-50 top-16 left-0 bottom-0 overflow-hidden w-full transform -translate-x-full transition-transform ease-out duration-500 sm:duration-700">
+  <div class="flex justify-start">
+    <nav id="se-nav-main" class="nav-main ml-16 mt-0 md:mt-16" role="navigation">
+      {% include "menu.twig" with {'items': se_menu.get_items} %}
+    </nav><!-- #nav -->
+  </div>
+</div>

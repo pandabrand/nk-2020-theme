@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <section class="article-content">
+    <div class="article-body py-16 px-16">
+
+      {% do action('woocommerce_before_main_content') %}
+
+      <div class="before-shop-loop">
+          {% do action('woocommerce_before_shop_loop') %}
+      </div>
+
+      <div class="loop flex flex-col w-full">
+          {% for post in products %}
+              {% include ["partials/tease-product.twig"] %}
+          {% endfor %}
+      </div>
+
+      {% do action('woocommerce_after_shop_loop') %}
+      {% do action('woocommerce_after_main_content') %}
+
+    </div>
+  </section>
+
+{% endblock  %}

@@ -1,0 +1,12 @@
+vendor
+wp-content
+composer.lock
+
+node_modules/
+
+*.log
+
+.nvmrc
+
+build/*
+dist/*

@@ -1,0 +1,12 @@
+{% if se_menu or sv_menu %}
+	<ul>
+	{% for item in items %}
+		<li class="{{ item.classes | join(' ') }}">
+			<a class="block w-72 {{ sv_active ? 'bg-red-900 hover:bg-red-200' : 'bg-indigo-900 hover:bg-indigo-200' }} text-white hover:text-black uppercase text-3xl px-4 py-1 my-6 sm:my-12" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			{% if item.children %}
+				{% include "menu.twig" with {'items': item.children} %}
+			{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}
