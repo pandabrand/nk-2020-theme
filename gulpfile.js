@@ -13,6 +13,7 @@ const uglify = require('gulp-uglify');//To Minify JS files
 const imagemin = require('gulp-imagemin'); //To Optimize Images
 const cleanCSS = require('gulp-clean-css');//To Minify CSS files
 const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
+const tailwindcss = require('tailwindcss'); 
 var rev = require('gulp-rev');
 
 //Note : Webp still not supported in majpr browsers including forefox
@@ -37,7 +38,6 @@ function previewReload(done){
 }
 
 function devStyles(){
-  const tailwindcss = require('tailwindcss'); 
   return src(`${options.paths.src.css}/**/*`)
     .pipe(postcss([
       tailwindcss(options.config.tailwindjs),
@@ -100,15 +100,18 @@ function devClean(){
 }
 
 function prodStyles(){
-  return src(`${options.paths.dist.css}/**/*`).pipe(purgecss({
-    content: ['**/*.{twig,js}'],
-    defaultExtractor: content => {
-      const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-      const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
-      return broadMatches.concat(innerMatches)
-    }
-  }))
+  return src(`${options.paths.src.css}/**/*`)
+  .pipe(postcss([
+    tailwindcss(options.config.tailwindjs),
+    require('autoprefixer'),
+    require('@fullhuman/postcss-purgecss')({
+      content: ['**/*.{twig,js}'],
+      safelist: ['wp-block-contact-form-7-contact-form-selector', 'wpcf7-text', 'wpcf7-textarea', 'wpcf7-submit'],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    }),
+  ]))
   .pipe(cleanCSS({compatibility: 'ie8'}))
+  .pipe(concat({ path: 'style.css'}))
   .pipe(rev())
   .pipe(dest(options.paths.build.css))
   .pipe( rev.manifest( options.paths.build.base + '/manifest.json', {
