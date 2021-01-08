@@ -35,8 +35,8 @@ jobs:
       
       - name: add config
         run: |
-          yarn config set "@fortawesome:registry" https://npm.fontawesome.com
-          yarn config set "//npm.fontawesome.com/:_authToken" "${{secrets.FONT_AWESOME}}"
+          npm config set "@fortawesome:registry" https://npm.fontawesome.com
+          npm config set "//npm.fontawesome.com/:_authToken" "${{secrets.FONT_AWESOME}}"
       
       - name: install Deps
         run: yarn
