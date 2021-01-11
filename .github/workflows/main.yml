@@ -51,5 +51,5 @@ jobs:
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
           rsync -chav -o -g --delete -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' --exclude /deploy_key --exclude /.git/ --exclude /.github/ --exclude /node_modules/ ./ ${{env.dest}}
-          ssh -i ./deploy_key -o StrictHostKeyChecking=no root@167.172.31.27 ./clean-owner.sh
+          ssh -i ./deploy_key -o StrictHostKeyChecking=no root@167.172.31.27 chown -R www-data:www-data /var/www/html/wp-content/themes/social-ecologies-2020
   

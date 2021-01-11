@@ -126,7 +126,7 @@ function prodScripts(){
     `${options.paths.src.js}/libs/**/*.js`,
     `${options.paths.src.js}/**/*.js`
   ])
-  .pipe(concat({ path: 'scripts.js'}))
+  .pipe(concat({ path: 'site.js'}))
   .pipe(uglify())
   .pipe(rev())
   .pipe(dest(options.paths.build.js))
