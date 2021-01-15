@@ -171,4 +171,15 @@ footer {
   footer {
     grid-area: 3 / 1 / 4 / 3;
   }
+
+  /* purgecss ignore */
+  .woocommerce-product-gallery__wrapper {
+    margin: 0;
+  }
+
+  /* purgecss ignore */
+  .variations,
+  .single_variation_wrap .quantity {
+    margin-bottom: 2rem;
+  }
 }

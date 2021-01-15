@@ -10,7 +10,8 @@ module.exports = {
       css: "./static/css",
       js: "./static/js",
       img: "./static/img",
-      twig: "./templates"
+      twig: "./templates",
+      woo: "./views"
     },
     dist: {
       base: "./dist",

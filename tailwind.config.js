@@ -77,6 +77,9 @@ module.exports = {
       backgroundPosition: {
         'center-bottom': 'center bottom',
       },
+      gridTemplateRows: {
+        'grid-rows-two-auto': 'repeat(2, auto)',
+      },
     },
   },
   variants: {

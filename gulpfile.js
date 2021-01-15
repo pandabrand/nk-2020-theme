@@ -44,7 +44,8 @@ function devStyles(){
       require('autoprefixer'),
       require('@fullhuman/postcss-purgecss')({
         content: [
-          '**/*.twig'
+          'views/**/*.twig',
+          'templates/**/*.twig'
         ],
         safelist: ['wp-block-contact-form-7-contact-form-selector', 'wpcf7-text', 'wpcf7-textarea', 'wpcf7-submit'],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
@@ -88,6 +89,7 @@ function devImages(){
 
 function watchFiles(){
   watch(`${options.paths.src.twig}/**/*.twig`,series(devStyles, previewReload));
+  watch(`${options.paths.src.woo}/**/*.twig`,series(devStyles, previewReload));
   watch([options.config.tailwindjs, `${options.paths.src.css}/**/*`],series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
   watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
@@ -105,7 +107,11 @@ function prodStyles(){
     tailwindcss(options.config.tailwindjs),
     require('autoprefixer'),
     require('@fullhuman/postcss-purgecss')({
-      content: ['**/*.{twig,js}'],
+      content: [
+        '**/*.{twig,js}',
+        'views/**/*.twig',
+        'templates/**/*.twig'
+    ],
       safelist: ['wp-block-contact-form-7-contact-form-selector', 'wpcf7-text', 'wpcf7-textarea', 'wpcf7-submit'],
       defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
     }),
