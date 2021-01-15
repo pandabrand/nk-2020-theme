@@ -21,3 +21,14 @@ function woo_remove_product_tabs( $tabs ) {
 
 		return $tabs;
 }
+
+function allow_personal_uploads( $existing_mimes = array() ) {
+	// allow uploading .MOBI and .EPUB files
+	$existing_mimes['mobi'] = 'application/x-mobipocket-ebook';
+	$existing_mimes['epub'] = 'application/epub+zip';
+
+	// return amended array
+	return $existing_mimes;
+}
+
+add_filter( 'upload_mimes', 'allow_personal_uploads' );
