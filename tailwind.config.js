@@ -87,5 +87,7 @@ module.exports = {
       padding: ['hover'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }

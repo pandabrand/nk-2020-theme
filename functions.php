@@ -168,8 +168,8 @@ class StarterSite extends Timber\Site {
 
 }
 
-define( 'ASSET_DIR', ( WP_ENVIRONMENT_TYPE === 'production' ) ? '/build/' : '/dist/' );
-define( 'ASSET_URI', ( WP_ENVIRONMENT_TYPE === 'production' ) ? '/build/' : '/dist/' );
+define( 'ASSET_DIR', '/build/' );
+define( 'ASSET_URI', '/build/' );
 define( 'ASSET_CSS', ASSET_URI . 'css/' );
 define( 'ASSET_JS', ASSET_URI . 'js/' );
 define( 'ASSET_IMG', ASSET_URI . 'img/' );
