@@ -85,6 +85,7 @@ module.exports = {
   variants: {
     extend: {
       padding: ['hover'],
+      display: ['last']
     },
   },
   plugins: [
