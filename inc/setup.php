@@ -95,3 +95,32 @@ function nk_custom_post_types_init() {
 	register_post_type( 'NK Media', $args );
 }
 add_action( 'init', 'nk_custom_post_types_init' );
+
+if ( function_exists( 'acf_add_options_page' ) ) {
+
+	acf_add_options_page(
+		array(
+			'page_title' => 'Site General Settings',
+			'menu_title' => 'Site Settings',
+			'menu_slug'  => 'nk-site-general-settings',
+			'capability' => 'edit_posts',
+			'redirect'   => false,
+		)
+	);
+
+	acf_add_options_sub_page(
+		array(
+			'page_title'  => 'Spontaneous Vegetation Settings',
+			'menu_title'  => 'Spontaneous Vegetation Settings',
+			'parent_slug' => 'nk-sv-settings',
+		)
+	);
+
+	acf_add_options_sub_page(
+		array(
+			'page_title'  => 'Social Ecologies Settings',
+			'menu_title'  => 'Social Ecologies Settings',
+			'parent_slug' => 'nk-se-settings',
+		)
+	);
+}
