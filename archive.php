@@ -36,11 +36,17 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-$sidebar_context                   = array();
-$sidebar_context['title']          = $title;
-$sidebar_context['featured_image'] = get_stylesheet_directory_uri() . ASSET_IMG . asset_path( 'SV-media.jpg' );
-$sidebar_context['se_active']      = false;
-$sidebar_context['sv_active']      = true;
+$sidebar_context          = array();
+$sidebar_context['title'] = $title;
+
+if ( 'nkmedia' === get_post_type() ) {
+	$nk_media_image                    = get_field( 'nk_media_featured_image', 'option' );
+	$sidebar_context['featured_image'] = new Timber\Image( $nk_media_image );
+}
+
+$archive_url                  = get_post_type_archive_link( get_post_type() );
+$sidebar_context['se_active'] = strpos( $archive_url, 'social-ecologies' ) !== false;
+$sidebar_context['sv_active'] = strpos( $archive_url, 'spontaneous-vegetation' ) !== false;
 
 $context['sidebar'] = Timber::get_sidebar( 'sidebar.php', $sidebar_context );
 
