@@ -117,6 +117,7 @@ footer {
 /* purgecss ignore */
 body.social-ecologies main,
 body.spontaneous-vegetation main {
+  grid-area: 2 / 1 / 4 / 2;
   overflow: hidden auto;
 }
 
