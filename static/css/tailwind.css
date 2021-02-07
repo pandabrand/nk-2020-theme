@@ -115,6 +115,12 @@ footer {
 }
 
 /* purgecss ignore */
+body.social-ecologies main,
+body.spontaneous-vegetation main {
+  overflow: hidden auto;
+}
+
+/* purgecss ignore */
 @media screen and (min-width: 515px) {
 
   /* purgecss ignore */
