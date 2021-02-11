@@ -9,17 +9,18 @@
  * @since    Timber 0.1
  */
 
-$context                  = Timber::context();
-$timber_post              = Timber::get_post();
-$context['post']          = $timber_post;
-$sidebar_context          = array();
-$sidebar_context['title'] = $timber_post->post_title;
+$context         = Timber::context();
+$timber_post     = Timber::get_post();
+$context['post'] = $timber_post;
+$sidebar_context = array();
 
 if ( 'nkmedia' === $timber_post->post_type && ! has_post_thumbnail() ) {
 	$nk_media_image                    = get_field( 'nk_media_featured_image', 'option' );
 	$sidebar_context['featured_image'] = new Timber\Image( $nk_media_image );
+	$sidebar_context['title']          = $timber_post->post_title;
 } elseif ( 'post' === $timber_post->post_type && ! has_post_thumbnail() ) {
 	$writings_image                    = get_field( 'writings_featured_image', 'option' );
+	$sidebar_context['title']          = 'Writings';
 	$sidebar_context['featured_image'] = new Timber\Image( $writings_image );
 }
 
