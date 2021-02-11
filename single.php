@@ -9,19 +9,24 @@
  * @since    Timber 0.1
  */
 
-$context         = Timber::context();
-$timber_post     = Timber::get_post();
-$context['post'] = $timber_post;
-$sidebar_context = array();
+$context                  = Timber::context();
+$timber_post              = Timber::get_post();
+$context['post']          = $timber_post;
+$sidebar_context          = array();
+$sidebar_context['title'] = $timber_post->post_title;
 
-// if ( 'mec-events' === $timber_post->post_type ) {
-	// $page                              = get_page_by_path( 'calendar' );
-	// $sidebar_context['featured_image'] = new Timber\Image( get_post_thumbnail_id( $page->ID ) );
-	// $sidebar_context['title']          = $timber_post->post_title;
-	// $sidebar_context['type']           = $timber_post->post_type;
-// }
+if ( 'nkmedia' === $timber_post->post_type && ! has_post_thumbnail() ) {
+	$nk_media_image                    = get_field( 'nk_media_featured_image', 'option' );
+	$sidebar_context['featured_image'] = new Timber\Image( $nk_media_image );
+} elseif ( 'post' === $timber_post->post_type && ! has_post_thumbnail() ) {
+	$writings_image                    = get_field( 'writings_featured_image', 'option' );
+	$sidebar_context['featured_image'] = new Timber\Image( $writings_image );
+}
 
-// $context['sidebar'] = Timber::get_sidebar( 'sidebar.php', $sidebar_context );
+$sidebar_context['se_active'] = false;
+$sidebar_context['sv_active'] = true;
+
+$context['sidebar'] = Timber::get_sidebar( 'sidebar.php', $sidebar_context );
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
