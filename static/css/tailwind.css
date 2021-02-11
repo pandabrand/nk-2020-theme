@@ -61,6 +61,19 @@ a.read-more {
 }
 
 /* purgecss ignore */
+.single .article-content .wp-block-verse {
+  white-space: pre-wrap;
+  margin-bottom: 2rem;
+}
+
+/* purgecss ignore */
+.single .article-content h1,
+.single .article-content h2,
+.single .article-content p {
+  margin-bottom: 2rem;
+}
+
+/* purgecss ignore */
 .wp-block-contact-form-7-contact-form-selector {
   display: flex;
   justify-content: center;
