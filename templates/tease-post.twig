@@ -1,7 +1,7 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-	<article class="flex flex-col m-4 p-8">
+	<article class="flex flex-col m-4 p-4 md:p-8">
 		<div><h2 class="text-3xl m-4"><a href="{{post.link}}">{{post.title}}</a></h2></div>
 		<div>
 			{% if post.thumbnail.src %}
