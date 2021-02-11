@@ -171,7 +171,7 @@ screen and (max-height: 800px) {
   body.social-ecologies main,
   body.spontaneous-vegetation main {
     grid-area: 2 / 1 / 3 / 3;
-    overflow: hidden;
+    overflow: hidden auto;
   }
 
   /* purgecss ignore */
