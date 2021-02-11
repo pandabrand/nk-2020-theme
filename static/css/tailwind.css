@@ -124,8 +124,7 @@ body.spontaneous-vegetation main {
 /* purgecss ignore */
 @media screen and (min-width: 515px),
        screen and (max-height: 800px) {
-  body.social-ecologies main article .article-body ul ,
-  body.spontaneous-vegetation main article .article-body ul  {
+  ul.sub-home-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
