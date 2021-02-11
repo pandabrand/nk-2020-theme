@@ -49,6 +49,15 @@
   p {
     @apply pb-2;
   }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* purgecss ignore */
+a.read-more {
+  display: block;
 }
 
 /* purgecss ignore */
