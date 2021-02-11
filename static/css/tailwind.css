@@ -122,6 +122,29 @@ body.spontaneous-vegetation main {
 }
 
 /* purgecss ignore */
+@media screen
+and (min-device-width: 1200px) 
+and (max-device-width: 1600px) 
+and (-webkit-min-device-pixel-ratio: 1)
+and (max-height: 800px) {
+  body.social-ecologies main,
+  body.spontaneous-vegetation main {
+    overflow: hidden auto;
+  }
+}
+/* purgecss ignore */
+@media screen
+and (min-device-width: 1200px) 
+and (max-device-width: 1600px) 
+and (-webkit-min-device-pixel-ratio: 2)
+and (max-height: 800px) {
+  body.social-ecologies main,
+  body.spontaneous-vegetation main {
+    overflow: hidden auto;
+  }
+}
+
+/* purgecss ignore */
 @media screen and (min-width: 515px) {
 
   /* purgecss ignore */
