@@ -123,26 +123,14 @@ body.spontaneous-vegetation main {
 
 /* purgecss ignore */
 @media screen
-and (min-device-width: 1200px) 
-and (max-device-width: 1600px) 
-and (-webkit-min-device-pixel-ratio: 1)
-and (max-height: 800px) {
-  body.social-ecologies main article .article-body ul ,
-  body.spontaneous-vegetation main article .article-body ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-/* purgecss ignore */
-@media screen
-and (min-device-width: 1200px) 
-and (max-device-width: 1600px) 
-and (-webkit-min-device-pixel-ratio: 2)
+and (min-width: 515px)
 and (max-height: 800px) {
   body.social-ecologies main article .article-body ul ,
   body.spontaneous-vegetation main article .article-body ul  {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
   }
 }
 
