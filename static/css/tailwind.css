@@ -226,7 +226,13 @@ screen and (max-height: 800px) {
   margin-bottom: 2rem;
 }
 
+/* purgecss ignore */
 .variations .label,
 .variations .value {
   padding-bottom: 1rem;
+}
+
+/* purgecss ignore */
+.add_to_cart_button {
+  max-width: 150px;
 }
