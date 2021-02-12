@@ -31,6 +31,10 @@
 
                 {% do action( 'woocommerce_after_shop_loop_item_title' ) %}
                 {% do action( 'woocommerce_after_shop_loop_item' ) %}
+
+                <div class="mt-8">
+                    {{post.preview.length(25)}}
+                </div>
             </div>
 
         </div>
