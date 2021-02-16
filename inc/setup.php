@@ -93,7 +93,54 @@ function nk_custom_post_types_init() {
 	);
 
 	register_post_type( 'NK Media', $args );
+
+	$project_labels = array(
+		'name'                  => _x( 'Project', 'Post type general name', 'nk-project' ),
+		'singular_name'         => _x( 'Project', 'Post type singular name', 'nk-project' ),
+		'menu_name'             => _x( 'NK Project', 'Admin Menu text', 'nk-project' ),
+		'name_admin_bar'        => _x( 'NK Project', 'Add New on Toolbar', 'nk-project' ),
+		'add_new'               => __( 'Add New', 'nk-project' ),
+		'add_new_item'          => __( 'Add New nk project', 'nk-project' ),
+		'new_item'              => __( 'New nk project', 'nk-project' ),
+		'edit_item'             => __( 'Edit nk project', 'nk-project' ),
+		'view_item'             => __( 'View nk project', 'nk-project' ),
+		'all_items'             => __( 'All nk project', 'nk-project' ),
+		'search_items'          => __( 'Search nk project', 'nk-project' ),
+		'parent_item_colon'     => __( 'Parent nk project:', 'nk-project' ),
+		'not_found'             => __( 'No nk project found.', 'nk-project' ),
+		'not_found_in_trash'    => __( 'No nk project found in Trash.', 'nk-project' ),
+		'featured_image'        => _x( 'NK Project Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'nk-project' ),
+		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'nk-project' ),
+		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'nk-project' ),
+		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'nk-project' ),
+		'archives'              => _x( 'NK Project archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'nk-project' ),
+		'insert_into_item'      => _x( 'Insert into nk project', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting nk project into a post). Added in 4.4', 'nk-project' ),
+		'uploaded_to_this_item' => _x( 'Uploaded to this nk project', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing nk project attached to a post). Added in 4.4', 'nk-project' ),
+		'filter_items_list'     => _x( 'Filter nk project list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'nk-project' ),
+		'items_list_navigation' => _x( 'NK Project list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'nk-project' ),
+		'items_list'            => _x( 'NK Project list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'nk-project' ),
+	);
+	$project_args   = array(
+		'labels'             => $project_labels,
+		'description'        => 'NK Project custom post type.',
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'spontaneous-vegetation/projects' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 20,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+		'taxonomies'         => array( 'category', 'post_tag' ),
+		'show_in_rest'       => true,
+	);
+
+	register_post_type( 'NK Project', $project_args );
 }
+
 add_action( 'init', 'nk_custom_post_types_init' );
 
 if ( function_exists( 'acf_add_options_page' ) ) {

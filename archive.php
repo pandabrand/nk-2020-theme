@@ -38,10 +38,14 @@ if ( is_day() ) {
 
 $sidebar_context          = array();
 $sidebar_context['title'] = $title;
+$context['sidebar_class'] = get_post_type();
 
 if ( 'nkmedia' === get_post_type() ) {
 	$nk_media_image                    = get_field( 'nk_media_featured_image', 'option' );
 	$sidebar_context['featured_image'] = new Timber\Image( $nk_media_image );
+} elseif ( 'nkproject' === get_post_type() ) {
+	$nk_project_image                  = get_field( 'nk_project_featured_image', 'option' );
+	$sidebar_context['featured_image'] = new Timber\Image( $nk_project_image );
 } elseif ( 'post' === get_post_type() ) {
 	$writings_image                    = get_field( 'writings_featured_image', 'option' );
 	$sidebar_context['featured_image'] = new Timber\Image( $writings_image );

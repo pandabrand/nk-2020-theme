@@ -236,3 +236,8 @@ screen and (max-height: 800px) {
 .add_to_cart_button {
   max-width: 150px;
 }
+
+/* purgecss ignore */
+.archive .wrapper {
+  padding: 0 2rem;
+}
