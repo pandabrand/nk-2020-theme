@@ -238,7 +238,7 @@ screen and (max-height: 800px) {
 }
 
 /* purgecss ignore */
-.archive .wrapper {
+.archive .wrapper.nkproject {
   padding: 2rem;
 }
 
