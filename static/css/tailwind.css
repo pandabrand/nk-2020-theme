@@ -239,5 +239,29 @@ screen and (max-height: 800px) {
 
 /* purgecss ignore */
 .archive .wrapper {
-  padding: 0 2rem;
+  padding: 2rem;
+}
+
+/* purgecss ignore */
+.archive .nkproject {
+  display: grid;
+  grid-template-columns: repeat (2, 1fr );
+  gap: 2rem;
+}
+
+/* purgecss ignore */
+.archive .nkproject .tease-nkproject {
+  display: flex;
+  justify-content: center;
+}
+
+/* purgecss ignore */
+.archive .nkproject .pagination-block {
+  grid-column: 1 / 3;
+}
+
+/* purgecss ignore */
+.archive .nkproject .pagination-block .pagination{
+  display: flex;
+  justify-content: space-around;
 }
