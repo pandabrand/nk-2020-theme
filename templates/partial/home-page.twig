@@ -10,7 +10,7 @@
 						{% else %}
 							{% set page_menu = sv_menu %}
 						{% endif %}
-						{% include "menu.twig" with {'items': page_menu.get_items} %}
+						{% include "menu.twig" with {'items': page_menu.get_items, 'se_active' : se_active} %}
 					</div>
 				</div>
 			</section>
