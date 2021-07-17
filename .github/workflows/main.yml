@@ -46,7 +46,7 @@ jobs:
         
       - name: sync
         env:
-          dest: 'root@167.172.31.27:/var/www/html/wp-content/themes/social-ecologies-2020'
+          dest: 'root@162.241.226.124:/var/www/html/wp-content/themes/social-ecologies-2020'
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key
