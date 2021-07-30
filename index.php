@@ -48,8 +48,8 @@ if ( 'nkmedia' === get_post_type() ) {
 }
 
 $archive_url                  = get_post_type_archive_link( get_post_type() );
-$sidebar_context['se_active'] = strpos( $archive_url, 'social-ecologies' ) !== false;
-$sidebar_context['sv_active'] = strpos( $archive_url, 'spontaneous-vegetation' ) !== false || 'mce-event' === get_post_type();
+$context['se_active'] = strpos( $archive_url, 'social-ecologies' ) !== false;
+$context['sv_active'] = strpos( $archive_url, 'spontaneous-vegetation' ) !== false || 'mce-event' === get_post_type();
 
 $context['sidebar'] = Timber::get_sidebar( 'sidebar.php', $sidebar_context );
 

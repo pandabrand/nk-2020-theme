@@ -9,8 +9,6 @@ $context                           = Timber::context();
 $sidebar_context                   = array();
 $sidebar_context['title']          = 'Shop';
 $sidebar_context['featured_image'] = get_stylesheet_directory_uri() . ASSET_IMG . asset_path( 'shop-banner.jpg' );
-$sidebar_context['se_active']      = false;
-$sidebar_context['sv_active']      = true;
 $context['sidebar']                = Timber::get_sidebar( 'sidebar.php', $sidebar_context );
 
 if ( is_singular( 'product' ) ) {
@@ -18,6 +16,7 @@ if ( is_singular( 'product' ) ) {
 	$product                = wc_get_product( $context['post']->ID );
 	$context['product']     = $product;
 	$context['description'] = $product->get_description();
+	$context['type']        = $product->get_type();
 	$product_tabs           = apply_filters( 'woocommerce_product_tabs', array() );
 
 	foreach ( $product_tabs as $key => $product_tab ) {

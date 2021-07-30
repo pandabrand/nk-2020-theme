@@ -2,28 +2,38 @@
 
 {% block content %}
 
-    {% do action('woocommerce_before_single_product') %}
+    <div id="product-{{ post.id }}" {{ fn('post_class', ['product', 'product--' ~ type]) }}>
+    
+        {% do action('woocommerce_before_single_product') %}
 
-    <article itemscope itemtype="http://schema.org/Product" class="grid grid-cols-1 md:grid-cols-2 grid-rows-two-auto p-8 single-product-details {{ post.class }}">
+        <article itemscope itemtype="http://schema.org/Product" class="grid grid-cols-1 md:grid-cols-2 grid-rows-two-auto p-8 single-product-details {{ post.class }}">
 
-        <div class="entry-images">
-            {% do action('woocommerce_before_single_product_summary') %}
-        </div>
+            <div class="entry-images">
+                {% do action('woocommerce_before_single_product_summary') %}
+            </div>
 
-        <div class="summary entry-summary p-4">
-            {% do action('woocommerce_single_product_summary') %}
-        </div>
+            <div class="summary entry-summary p-4">
 
-        {% do action('woocommerce_after_single_product_summary') %}
+                <div class="product-summary">
 
-        <div class="product-description col-span-2">
-            {% include["partials/tabs.twig"] with { product_tabs: product_tabs } %}
-        </div>
+                    {% do action('woocommerce_single_product_summary') %}
+                    
+                </div>
 
-        <meta itemprop="url" content="{{ post.link }}" />
+            </div>
 
-    </article>
+            {% do action('woocommerce_after_single_product_summary') %}
 
-    {% do action('woocommerce_after_single_product') %}
+            <div class="product-description col-span-2">
+                {% include["partials/tabs.twig"] with { product_tabs: product_tabs } %}
+            </div>
+
+            <meta itemprop="url" content="{{ post.link }}" />
+
+        </article>
+
+        {% do action('woocommerce_after_single_product') %}
+
+    </div>
 
 {% endblock  %}
