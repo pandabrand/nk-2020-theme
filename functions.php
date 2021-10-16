@@ -145,6 +145,8 @@ class StarterSite extends Timber\Site {
 		);
 
 		add_theme_support( 'menus' );
+
+		add_theme_support( 'woocommerce' );
 	}
 
 	/** This Would return 'foo bar!'.

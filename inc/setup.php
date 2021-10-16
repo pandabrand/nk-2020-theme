@@ -26,13 +26,6 @@ function s_e2020_widgets_init() {
 
 add_action( 'widgets_init', 's_e2020_widgets_init' );
 
-function theme_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
-}
-
-add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
-
-
 function s_e2020_template( $template ) {
 	global $post;
 

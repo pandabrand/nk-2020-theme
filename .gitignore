@@ -5,8 +5,8 @@ composer.lock
 node_modules/
 
 *.log
+error_log
 
-.nvmrc
 
 build/*
 dist/*
