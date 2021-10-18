@@ -1,0 +1,11 @@
+<a
+    class="cart-mini-contents"
+    href="{{ fn('wc_get_cart_url') }}"
+    title="{{ __('View cart', 'my-theme-textdomain') }}"
+>
+    <span class="fa-layers fa-fw">
+        <i data-fa-symbol="shopping-bag" class="fa-light fa-shopping-bag"></i>
+        <svg class="footer-icons shopping"><use xlink:href="#shopping-bag"></use></svg>
+        <span class="fa-layers-counter">{{ cart.get_cart_contents_count }}</span>
+    </span>
+</a>
